@@ -1,0 +1,20 @@
+<div class="main-div-body">
+  <div class="main">  	
+    <input type="checkbox" id="chk" aria-hidden="true">
+      <div class="signup">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <label for="chk" aria-hidden="true">Login</label>
+          <input type="email" class="form-control" formControlName="email" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+          <div *ngIf="submitted && f.email.errors" class="invalid-error">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
+          <input type="password" class="form-control" formControlName="password" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+          <div *ngIf="submitted && f.password.errors" class="invalid-error">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+          <button type="submit">Go</button>
+        </form>
+      </div>
+  </div>
+</div>
